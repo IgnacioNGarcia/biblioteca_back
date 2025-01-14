@@ -28,6 +28,30 @@ const librosController = {
             res.status(500).json({ error: error.message });
         }
     },
+    getPrestados: async (req, res) => {
+        try {
+            const librosPrestados = await librosModel.getPrestados();
+            res.json(librosPrestados);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    },
+    getDeteriorados: async (req, res) => {
+        try {
+            const librosDeteriorados = await librosModel.getDeteriorados();
+            res.json(librosDeteriorados);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    },
+    getReservados: async (req, res) => {
+        try {
+            const librosReservados = await librosModel.getReservados();
+            res.json(librosReservados);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    },
     getInformacionFullJoineada: async (req, res) => {
         try {
             const libros = await librosModel.getInformacionFullJoineada();

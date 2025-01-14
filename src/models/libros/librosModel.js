@@ -28,6 +28,30 @@ const librosModel = {
       throw error;
     }
   },
+  getPrestados: async () => {
+    try {
+      const result = await pool.query('SELECT * FROM libros WHERE estado = $1 order by id asc', ['PRESTADO']);
+      return result.rows;
+    } catch (error) {
+      throw error;
+    }
+  },
+  getDeteriorados: async () => {
+    try {
+      const result = await pool.query('SELECT * FROM libros WHERE estado = $1 order by id asc', ['DETERIORADO']);
+      return result.rows;
+    } catch (error) {
+      throw error;
+    }
+  },
+  getReservados: async () => {
+    try {
+      const result = await pool.query('SELECT * FROM libros WHERE estado = $1 order by id asc', ['RESERVADO']);
+      return result.rows;
+    } catch (error) {
+      throw error;
+    }
+  },
   getInformacionFullJoineada: async () => {
     try {
       const result = await pool.query(
