@@ -27,6 +27,20 @@ const librosModel = {
     } catch (error) {
       throw error;
     }
+  },
+  getInformacionFullJoineada: async () => {
+    try {
+      const result = await pool.query(
+        `select l.id, l.isbn, l.titulo, l.edicion, l.año, g.nombre as "genero", e.nombre as "autor", p.nombre as "país", l.estado
+         from libros l 
+          left join generos g on g.id = l.genero_id 
+          left join editoriales e on e.id = l.editorial_id
+          left join paises p on p.id = l.pais_id
+          order by l.id asc`);
+      return result.rows;
+    } catch (error) {
+      throw error;
+    }
   }
 };
 

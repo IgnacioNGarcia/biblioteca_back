@@ -4,5 +4,3 @@ const ejemploController = require('../controllers/ejemploController');
 
 router.get('/', ejemploController.getAll);
 router.get('/:id', ejemploController.getById);
-
-module.exports = router;

@@ -47,7 +47,7 @@ const ejemploModel = {
     } catch (error) {
       throw error;
     }
-  }
+  },
 };
 
 module.exports = ejemploModel;

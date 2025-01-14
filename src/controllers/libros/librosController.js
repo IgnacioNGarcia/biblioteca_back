@@ -27,6 +27,14 @@ const librosController = {
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
+    },
+    getInformacionFullJoineada: async (req, res) => {
+        try {
+            const libros = await librosModel.getInformacionFullJoineada();
+            res.json(libros);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
     }
 };
 
